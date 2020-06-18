@@ -116,4 +116,5 @@ const formatPhoneSimple = (p) => {
 
 module.exports = {
 	checkPhone,
+	formatPhoneSimple,
 };
