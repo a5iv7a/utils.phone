@@ -102,6 +102,18 @@ const checkPhone = (phone, domain = 'by') => {
 	return false;
 };
 
+/**
+ * @param p {string} phone
+ * @returns {string}
+ */
+const formatPhoneSimple = (p) => {
+	if (p.length === 12 && p.charAt(0) != 7) return '+'+p.slice(0, 3)+' ('+p.slice(3, 5)+') '+p.slice(5, 8)+'-'+p.slice(8, 10)+'-'+p.slice(10, 12);
+	else if (p.length === 11 && p.charAt(0) == 7) return '+'+p.slice(0, 1)+' ('+p.slice(1, 4)+') '+p.slice(4, 7)+'-'+p.slice(7, 9)+'-'+p.slice(9, 11);
+	else if (p.length === 11 && p.charAt(0) == 8) return p.slice(0, 1)+' '+p.slice(1, 4)+' '+p.slice(4, 7)+'-'+p.slice(7, 9)+'-'+p.slice(9, 11);
+	else return p;
+};
+
+
 module.exports = {
 	checkPhone,
 };
