@@ -77,7 +77,7 @@ const phoneReg = {
 	br: /(?=^(\+?5{2}\-?|0)[1-9]{2}\-?\d{4}\-?\d{4}$)(^(\+?5{2}\-?|0)[1-9]{2}\-?[6-9]{1}\d{3}\-?\d{4}$)|(^(\+?5{2}\-?|0)[1-9]{2}\-?9[6-9]{1}\d{3}\-?\d{4}$)/,
 	pt: /^(\+?351)9[1236]\d{7}$/,
 	ro: /^(\+?4)\s?7\d{2}(\/|\s|\.|\-)?\d{3}(\s|\.|\-)?\d{3}$/,
-	ru: /^(\+?7|8)9\d{9}$/,
+	ru: /^(\+?7)9\d{9}$/,
 	si: /^(\+?386)(\d{1}\s?\d{3}\s?\d{2}\s?\d{2}|\d{2}\s?\d{3}\s?\d{3})$/,
 	sk: /^(\+?421)[1-9][0-9]{2}[0-9]{3}[0-9]{3}$/,
 	rs: /^(\+?3816)[- \d]{5,9}$/,
@@ -90,6 +90,11 @@ const phoneReg = {
 	tw: /^(\+?886)9\d{8}$/,
 };
 
+/**
+ * @param phone {string} mobile phone number
+ * @param domain {string} country domain
+ * @returns {boolean}
+ */
 const checkPhone = (phone, domain = 'by') => {
 	if (phoneReg[domain]) {
 		return phoneReg[domain].test(phone);
